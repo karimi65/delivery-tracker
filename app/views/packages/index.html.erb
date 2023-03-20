@@ -94,6 +94,23 @@
       <% end %>
     </ul>
   </div>
+
+  <div class="received" style="background: lightgreen">
+    <h2>Received</h2> 
+    <ul>
+      <% @list_of_packages.each do |a_package| %>
+        <li>
+          <div><%= a_package.name %></div>
+          <div>
+            <small>
+            Updated <%= a_package.updated_at %>
+            <a href="/delete_package/<%= a_package.id %>">Delete</a>
+          </small>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
   
 </div>
 
