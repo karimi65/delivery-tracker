@@ -41,7 +41,7 @@ class PackagesController < ApplicationController
     the_id = params.fetch("path_id")
     the_package = Package.where({ :id => the_id }).at(0)
 
-    # the_package.name = params.fetch("query_name")
+    the_package.name = params.fetch("query_name")
     # the_package.user_id = params.fetch("query_user_id")
     # the_package.arrive_on = params.fetch("query_arrive_on")
     # the_package.content = params.fetch("query_content")
