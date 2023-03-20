@@ -29,7 +29,7 @@
           
         </label>
 
-        <input type="hidden" id="user_id_box" name="query_user_id">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= session.fetch(:user_id) %>">
       </div>
 
       <div>
@@ -53,7 +53,7 @@
         
         </label>
 
-        <input type="hidden" id="status_box" name="query_status">
+        <input type="hidden" id="status_box" name="query_status" value="waiting_on">
       </div>
 
       <button>
@@ -68,7 +68,7 @@
   <div class="waiting_on" style="background: lightgoldenrodyellow">
     <h2>Waiting on</h2> 
     <ul>
-      <% @list_of_packages.each do |a_package| %>
+      <% @waiting_list.each do |a_package| %>
         <li>
           <div><%= a_package.name %></div>
 
@@ -82,8 +82,8 @@
           </div>
 
           <div>
-            <form action="/modify_delivery/158812" method="post">
-              <input type="hidden" name="arrived" value="true">
+            <form action="/modify_package/<%= a_package.id %>" method="post">
+              <input type="hidden" name="query_status" value="received">
 
               <button>Mark as received</button>
             </form>
@@ -98,7 +98,7 @@
   <div class="received" style="background: lightgreen">
     <h2>Received</h2> 
     <ul>
-      <% @list_of_packages.each do |a_package| %>
+      <% @received_list.each do |a_package| %>
         <li>
           <div><%= a_package.name %></div>
           <div>
