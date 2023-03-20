@@ -29,7 +29,7 @@ class UserAuthenticationController < ApplicationController
   def destroy_cookies
     reset_session
 
-    redirect_to("/", { :notice => "Signed out successfully." })
+    redirect_to("/user_sign_in", { :notice => "Signed out successfully." })
   end
 
   def sign_up_form
@@ -76,7 +76,7 @@ class UserAuthenticationController < ApplicationController
     @current_user.destroy
     reset_session
     
-    redirect_to("/", { :notice => "User account cancelled" })
+    redirect_to("/", { :notice => "User account canceled" })
   end
  
 end

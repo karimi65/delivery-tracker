@@ -24,7 +24,7 @@ class PackagesController < ApplicationController
   def create
     the_package = Package.new
     the_package.name = params.fetch("query_name")
-    the_package.user_id = params.fetch("query_user_id")
+    the_package.user_id = session.fetch(:user_id)
     the_package.arrive_on = params.fetch("query_arrive_on")
     the_package.content = params.fetch("query_content")
     the_package.status = params.fetch("query_status")
@@ -42,7 +42,7 @@ class PackagesController < ApplicationController
     the_package = Package.where({ :id => the_id }).at(0)
 
     the_package.name = params.fetch("query_name")
-    the_package.user_id = params.fetch("query_user_id")
+    the_package.user_id = session.fetch(:user_id)
     the_package.arrive_on = params.fetch("query_arrive_on")
     the_package.content = params.fetch("query_content")
     the_package.status = params.fetch("query_status")
