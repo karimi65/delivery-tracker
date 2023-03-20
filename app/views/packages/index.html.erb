@@ -72,13 +72,17 @@
         <li>
           <div><%= a_package.name %></div>
 
-          <%# if ((Date.today) - ( a_package.arrive_on )) > 3 %>
-          <%# else %>
+          <% if ((Date.today) - ( a_package.arrive_on )) > 3 %>
+          <div style="color: red">
+              Supposed to arrive on
+              <%= a_package.arrive_on %>
+            </div>
+          <% else %>
             <div>
               Supposed to arrive on
               <%= a_package.arrive_on %>
             </div>
-          <%# end %>
+          <% end %>
           <div>
             <%= a_package.content %>
           </div>
